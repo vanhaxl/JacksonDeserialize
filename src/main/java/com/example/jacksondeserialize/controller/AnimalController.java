@@ -21,6 +21,11 @@ public class AnimalController {
     @RequestMapping(value = "/test", method =  RequestMethod.POST)
     public List<Animal> test(@RequestBody AnimalManagement animalManagement){
 
+        for(Animal animal: animalManagement.getAnimalList()){
+            if(animal instanceof Cat){
+                System.out.println(animal.getId()  + " is a Cat");
+            }
+        }
         return animalManagement.getAnimalList();
 
     }
